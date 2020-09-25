@@ -1,19 +1,21 @@
 import React from 'react';
 import './App.css';
 import ActorsContainer from './containers/ActorsContainer'
-
-
+import { Switch, Route } from 'react-router-dom'
 
 class App extends React.Component {
 
-  // componentDidMount(){
-  //   this.fetchActors();
-  // }
+
 
   render(){
+
     return (
       <div className="App">
-        <ActorsContainer />
+        <Switch>
+          <Route path='/actors'>
+            <ActorsContainer />
+          </Route>
+        </Switch>
       </div>
     )
   }
