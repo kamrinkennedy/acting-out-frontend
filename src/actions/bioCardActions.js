@@ -1,4 +1,4 @@
-const baseURL = 'http://localhost3001/bio_cards'
+const baseURL = 'http://localhost:3001/bio_cards'
 
 export function fetchBio(id){
     return (dispatch) => {
