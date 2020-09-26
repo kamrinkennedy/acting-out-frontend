@@ -11,7 +11,7 @@ import bioCardReducer from './reducers/bioCardReducer';
 import thunk from 'redux-thunk';
 import { BrowserRouter as Router} from 'react-router-dom';
 
-const rootReducer = combineReducers({actors: actorReducer, biocard: bioCardReducer})
+const rootReducer = combineReducers({actors: actorReducer, bioCard: bioCardReducer})
 const store = createStore(rootReducer, composeWithDevTools(applyMiddleware(thunk)))
 
 ReactDOM.render(

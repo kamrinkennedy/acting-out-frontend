@@ -11,6 +11,10 @@ export default function actorReducer(state = { actors: [], loading: true}, actio
             return {...state, actors: action.payload, loading: false}
         case 'FETCH_ACTOR':
             return {...state, actors: [action.payload], loading: false}
+        case 'ADD_PICTURE':
+            let actorIndex = state.actors.findIndex( actor => actor.id == action.payload.id )
+            let newArray = state.actors.splice(actorIndex, 1, action.payload)
+            return {...state, actors: [...state.actors.slice(0, actorIndex), action.payload, ...state.actors.slice(actorIndex + 1)] }
         default:
             return state;
     }
