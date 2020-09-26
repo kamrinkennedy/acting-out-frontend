@@ -23,6 +23,27 @@ export function fetchActor(id){
     }
 }
 
+export function addActor(actor){
+    // debugger;
+    const configObj = {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+        },
+        body: JSON.stringify({actor: actor})
+    }
+
+    return (dispatch) => {
+        fetch(baseURL, configObj)
+            .then(res => res.json())
+            .then(actor => {
+                debugger;
+                dispatch({type: 'ADD_ACTOR', payload: actor})
+            })
+    }
+}
+
 export function addPicture(actor){
 
     const configObj = {
@@ -33,6 +54,7 @@ export function addPicture(actor){
         },
         body: JSON.stringify({picture_url: actor.url})
     }
+    debugger;
 
     return (dispatch) => {
         fetch(baseURL + `/${actor.id}`, configObj)

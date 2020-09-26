@@ -4,6 +4,7 @@ import { fetchActors } from '../actions/actorActions'
 import ActorCard from '../components/ActorCard'
 import { Link, Switch, Route } from 'react-router-dom'
 import ActorShow from '../components/ActorShow'
+import ActorForm from '../forms/ActorForm'
 
 class ActorsContainer extends Component {
 
@@ -12,6 +13,7 @@ class ActorsContainer extends Component {
     }
 
     displayedActors(){
+        // debugger;
         return this.props.actors.map( actor => {
             return (
                 <div key={actor.id}>
@@ -23,6 +25,8 @@ class ActorsContainer extends Component {
     
     render(){
         return (
+            <>
+            <ActorForm />
             <div className='actors-container'>
                 <Switch>
                     <Route path="/actors/:id" component={({match}) => {
@@ -33,6 +37,7 @@ class ActorsContainer extends Component {
                     </Route>
                 </Switch>
             </div>
+            </>
         )
     }
 }   
