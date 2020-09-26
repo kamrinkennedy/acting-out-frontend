@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { fetchBio } from '../actions/bioCardActions'
-import { Switch, Route } from 'react-router-dom'
+import BioCardForm from '../forms/BioCardForm'
 
 class BioCardContainer extends Component {
 
@@ -17,7 +17,8 @@ class BioCardContainer extends Component {
             <div className='bioCard'>
                 <h1>Bio Card</h1><br/>
                 <h3>Age: {age} | Weight: {weight} | Height: {height}</h3><br/>
-                <h3>Eye Color: {eye_color} | Hair Color: {hair_color}</h3>
+                <h3>Eye Color: {eye_color} | Hair Color: {hair_color}</h3><br/>
+                <BioCardForm bioCard={this.props.bioCard} actorID={this.props.actorID}/>
             </div>
         )
     }
