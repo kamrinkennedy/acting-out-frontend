@@ -16,9 +16,6 @@ class ActorsContainer extends Component {
             return (
                 <div key={actor.id}>
                     <ActorCard actor={actor} key={actor.id}/>
-                    <Link to={`/actors/${actor.id}`}>
-                        View Actor Profile
-                    </Link>
                 </div>
             )
         })
@@ -26,16 +23,17 @@ class ActorsContainer extends Component {
     
     render(){
         return (
-        <Switch>
-            <Route path="/actors/:id" component={({match}) => {
-                return <ActorShow id={match.params.id}/>
-            }}/>
-            <Route exact path='/actors'>
-                {this.props.loading ?  <div>Loading...</div> : this.displayedActors()}
-            </Route>
-        </Switch>
+            <div className='actors-container'>
+                <Switch>
+                    <Route path="/actors/:id" component={({match}) => {
+                        return <ActorShow id={match.params.id}/>
+                    }}/>
+                    <Route exact path='/actors'>
+                        {this.props.loading ?  <div>Loading...</div> : this.displayedActors()}
+                    </Route>
+                </Switch>
+            </div>
         )
-
     }
 }   
 

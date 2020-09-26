@@ -22,3 +22,23 @@ export function fetchActor(id){
             })
     }
 }
+
+export function addPicture(actor){
+
+    const configObj = {
+        method: 'PATCH',
+        headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+        },
+        body: JSON.stringify({picture_url: actor.url})
+    }
+
+    return (dispatch) => {
+        fetch(baseURL + `/${actor.id}`, configObj)
+            .then(res => res.json())
+            .then( actor => {
+                dispatch({type: 'ADD_PICTURE', payload: actor})
+            })
+    }
+}
