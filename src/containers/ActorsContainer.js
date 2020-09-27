@@ -2,7 +2,7 @@ import React,{ Component } from 'react'
 import { connect } from 'react-redux'
 import { fetchActors } from '../actions/actorActions'
 import ActorCard from '../components/ActorCard'
-import { Link, Switch, Route } from 'react-router-dom'
+import { Switch, Route } from 'react-router-dom'
 import ActorShow from '../components/ActorShow'
 import ActorForm from '../forms/ActorForm'
 
@@ -25,19 +25,18 @@ class ActorsContainer extends Component {
     
     render(){
         return (
-            <>
-            <ActorForm />
-            <div className='actors-container'>
+            // <div className='actors-container'>
                 <Switch>
                     <Route path="/actors/:id" component={({match}) => {
-                        return <ActorShow id={match.params.id}/>
+                        return <div className='actors-container'><ActorShow id={match.params.id}/></div>
                     }}/>
                     <Route exact path='/actors'>
-                        {this.props.loading ?  <div>Loading...</div> : this.displayedActors()}
+                        <ActorForm id='add-actor-button'/>
+                        {this.props.loading ?  <div><h1>Loading...</h1></div> 
+                        : <div className='actors-container'>{this.displayedActors()}</div>}
                     </Route>
                 </Switch>
-            </div>
-            </>
+            // </div>
         )
     }
 }   

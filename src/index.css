@@ -17,6 +17,7 @@ code {
   height: 100%;
   object-fit: cover;
   border: 1px solid black;
+
 }
 
 .actor-card {
@@ -34,3 +35,5 @@ code {
   flex-wrap: wrap;
   justify-content: space-evenly;
 }
+
+

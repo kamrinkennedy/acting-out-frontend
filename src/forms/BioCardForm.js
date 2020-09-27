@@ -3,14 +3,14 @@ import {addBioCard, editBioCard} from '../actions/bioCardActions'
 import { connect } from 'react-redux'
 
 class BioCardForm extends React.Component {
-
+    
     state = {
         submitting: false,
-        age: '',
-        weight: '',
-        height: '',
-        eye_color: '',
-        hair_color: ''
+        age: this.props.bioCard.age,
+        weight: this.props.bioCard.weight,
+        height: this.props.bioCard.height,
+        eye_color: this.props.bioCard.eye_color,
+        hair_color: this.props.bioCard.hair_color
     }
 
     handleOnChange = event => {
@@ -30,7 +30,7 @@ class BioCardForm extends React.Component {
     handleOnSubmit = event => {
         event.preventDefault()
         const { age, weight, height, eye_color, hair_color } = this.state
-        debugger;   
+        // debugger;   
         this.props.bioCard.error ? this.props.addBioCard({age, weight, height, eye_color, hair_color, actor_id: this.props.actorID}) : 
         this.props.editBioCard({ age, weight, height, eye_color, hair_color}, this.props.bioCard.id)
         this.setState({

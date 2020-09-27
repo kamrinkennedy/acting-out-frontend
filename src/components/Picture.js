@@ -1,5 +1,4 @@
 import React from 'react'
-import PictureForm from '../forms/PictureForm'
 import AddPictureButton from './AddPictureButton'
 
 export default class Picture extends React.Component{

@@ -2,6 +2,7 @@ const baseURL = 'http://localhost:3001/bio_cards'
 
 export function fetchBio(id){
     return (dispatch) => {
+        // debugger;
         dispatch({type: 'FETCHING_BIO'})
         fetch(baseURL + `/${id}`)
             .then(res => res.json())
