@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { fetchBio } from '../actions/bioCardActions'
 import BioCard from '../components/BioCard'
-import BioCardForm from '../forms/BioCardForm'
 
 class BioCardContainer extends Component {
 

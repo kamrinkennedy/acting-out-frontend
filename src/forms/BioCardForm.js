@@ -23,7 +23,8 @@ class BioCardForm extends React.Component {
         this.setState({submitting: true})
     }
 
-    handleOnCancel = () => {
+    handleOnCancel = event => {
+        event.preventDefault()
         this.setState({submitting: false})
     }
     
@@ -31,8 +32,10 @@ class BioCardForm extends React.Component {
         event.preventDefault()
         const { age, weight, height, eye_color, hair_color } = this.state
         // debugger;   
-        this.props.bioCard.error ? this.props.addBioCard({age, weight, height, eye_color, hair_color, actor_id: this.props.actorID}) : 
+        this.props.bioCard.error ? 
+        this.props.addBioCard({age, weight, height, eye_color, hair_color, actor_id: this.props.actorID}) : 
         this.props.editBioCard({ age, weight, height, eye_color, hair_color}, this.props.bioCard.id)
+        
         this.setState({
             submitting: false,
             age: '',

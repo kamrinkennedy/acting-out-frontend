@@ -14,7 +14,7 @@ class ContactCardContainer extends React.Component{
         // debugger;
         return (
             <div>
-                {this.props.loading ? <h1>Loading...</h1> : <ContactCard contactCard={this.props.contactCard}/>}
+                {this.props.loading ? <h1>Loading...</h1> : <ContactCard contactCard={this.props.contactCard} actorID={this.props.actorID}/>}
             </div>
         )
     }

@@ -11,3 +11,44 @@ export function fetchContact(id){
             })
     }
 }
+
+export function addContactCard(contact){
+    // debugger;
+    const configObj = {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+        },
+        body: JSON.stringify({contact_card: contact})
+    }
+
+    return (dispatch) => {
+        fetch(baseURL, configObj)
+            .then(res => res.json())
+            .then(contactCard => {
+                // debugger;
+                dispatch({type:'ADD_CONTACT', payload: contactCard})
+            })
+    }
+}
+
+export function editContactCard(contact, id) {
+    const configObj = {
+        method: 'PATCH',
+        headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+        },
+        body: JSON.stringify({contact_card: contact})
+    }
+    
+    return (dispatch) => {
+        fetch(baseURL + `/${id}`, configObj)
+        .then(res => res.json())
+        .then(contactCard => {
+            dispatch({type: 'EDIT_BIO', payload: contactCard})
+        })
+    }
+
+}
