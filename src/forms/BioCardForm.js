@@ -13,6 +13,7 @@ class BioCardForm extends React.Component {
         hair_color: this.props.bioCard.hair_color
     }
 
+
     handleOnChange = event => {
         this.setState({
             [event.target.name]: event.target.value
@@ -35,16 +36,13 @@ class BioCardForm extends React.Component {
         this.props.bioCard.error ? 
         this.props.addBioCard({age, weight, height, eye_color, hair_color, actor_id: this.props.actorID}) : 
         this.props.editBioCard({ age, weight, height, eye_color, hair_color}, this.props.bioCard.id)
-        
+
         this.setState({
-            submitting: false,
-            age: '',
-            weight: '',
-            height: '',
-            eye_color: '',
-            hair_color: ''
+            submitting: false
         })
+ 
     }
+
 
     render(){
         return (
