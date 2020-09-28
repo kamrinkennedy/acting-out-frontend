@@ -31,14 +31,11 @@ class ContactCardForm extends React.Component {
         event.preventDefault();
         const { email, phone, city, state } = this.state
 
-        this.props.contactCard.error ? this.props.addContactCard({email, phone, city, state, actor_id: this.props.actorID}) :
-        this.props.editContactCard({email, phone, city, state}, this.props.acctorID)
+        this.props.contactCard.error ? 
+        this.props.addContactCard({email, phone, city, state, actor_id: this.props.actorID}) :
+        this.props.editContactCard({email, phone, city, state}, this.props.contactCard.id)
         this.setState({
-            submitting: false,
-            email: this.props.contactCard.email,
-            phone: this.props.contactCard.phone,
-            city: this.props.contactCard.city,
-            state: this.props.contactCard.state
+            submitting: false
         })
     }
 
