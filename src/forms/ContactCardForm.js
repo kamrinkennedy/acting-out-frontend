@@ -51,9 +51,9 @@ class ContactCardForm extends React.Component {
                 <input type='text' name='city' onChange={this.handleOnChange} value={this.state.city}/><br/>
                 <label for='state'>State: </label>
                 <input type='text' name='state' onChange={this.handleOnChange} value={this.state.state}/><br/>
-                <input type='submit'/> <button onClick={this.handleOnCancel}>Cancel</button>
+                <input type='submit' className='button' /> <button className='button' onClick={this.handleOnCancel}>Cancel</button>
             </form> :
-            <button onClick={this.handleOnClick}>Edit Contact Card</button>
+            <button className='button' onClick={this.handleOnClick}>Edit Contact Card</button>
         )
     }
 }

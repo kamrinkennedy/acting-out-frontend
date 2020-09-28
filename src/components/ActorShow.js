@@ -23,13 +23,12 @@ class ActorShow extends React.Component{
                     <h1>{actor.first_name} {actor.last_name}</h1><br/>
                         <Picture actor={actor}/><br/>
                     <div className='links'>
-                        <Link to={`/bio_card/${actor.id}`} >
-                            Bio Card
+                        <Link to={`/bio_card/${actor.id}`} className='link' >
+                            Bio Card 
                         </Link>
-                        <br/>
-                        <Link to={`/contact_card/${actor.id}`}>
+                        <Link to={`/contact_card/${actor.id}`} className='link'>
                             Contact Card
-                        </Link>
+                        </Link><br/><br/>
                     </div>
                 </div>
             )

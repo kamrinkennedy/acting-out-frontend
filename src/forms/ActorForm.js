@@ -48,10 +48,12 @@ class ActorForm extends React.Component {
             <input type='text' name='first_name' onChange={this.handleOnChange} value={this.state.first_name}/><br/>
             <label for='last_name'>Last Name: </label>
             <input type='text' name='last_name' onChange={this.handleOnChange} value={this.state.last_name}/><br/>
-            <input type='submit'></input> <button onClick={this.handleOnCancel}>Cancel</button>
+            <input type='submit' className='button'></input> <button className='button' onClick={this.handleOnCancel}>Cancel</button>
         </form> :
             // ADD ACTOR BUTTON
-        <button id='add-actor-button' onClick={this.handleOnClick}>Add Actor</button>
+            <div id='add-actor-form'>
+                <button id='add-actor-button' className='button' onClick={this.handleOnClick}>Add Actor</button>
+            </div>
         )
     }
 

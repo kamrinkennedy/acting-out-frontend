@@ -26,7 +26,7 @@ class PictureForm extends React.Component {
             return (
                 <form className='picture-form' onSubmit={this.handleOnSubmit}>
                     <input type='text' placeholder='Image URL ....' name='url'></input>
-                    <input type='submit'/><button onClick={this.handleCancel}>Cancel</button>
+                    <input type='submit' className='button'/><button className='button' onClick={this.handleCancel}>Cancel</button>
                 </form>
                 )
         } 
