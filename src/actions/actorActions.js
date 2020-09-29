@@ -44,6 +44,7 @@ export function addActor(actor){
     }
 }
 
+
 export function addPicture(actor){
 
     const configObj = {
