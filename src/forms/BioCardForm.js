@@ -58,9 +58,9 @@ class BioCardForm extends React.Component {
             <input type='text' name='eye_color' onChange={this.handleOnChange} value={this.state.eye_color}/><br/>
             <label for='hair_color'>Hair Color: </label>
             <input type='text' name='hair_color' onChange={this.handleOnChange} value={this.state.hair_color}/><br/>
-            <input type='submit' /> <button onClick={this.handleOnCancel}>Cancel</button>
+            <input type='submit' className='button'/> <button className='button' onClick={this.handleOnCancel}>Cancel</button>
         </form> :
-        <button onClick={this.handleOnClick}>Edit Bio Card</button>
+        <button className='button' onClick={this.handleOnClick}>Edit Bio Card</button>
         )
     }
 

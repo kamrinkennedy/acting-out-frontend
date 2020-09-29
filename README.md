@@ -1,68 +1,66 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# README
+# Acting Out
 
-## Available Scripts
+Acting Out was built using React as a frontend and Rails as an API for the backend data persistence. This application also uses React-Redux, React-Router-DOM, and React-thunk. 
 
-In the project directory, you can run:
+## Getting Started
 
-### `yarn start`
+Find repository here: (https://github.com/kamrinkennedy/acting-out-frontend)
+Backend repository: (https://github.com/kamrinkennedy/acting-out-backend)
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### Prerequisites
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+This application was built with Ruby version 2.7.0 and Node version 10.19.0
 
-### `yarn test`
+```
+ruby 2.7.0p0 (2019-12-25 revision 647ee6f091) [x86_64-linux]
+node v10.19.0
+```
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Installing
 
-### `yarn build`
+Fork and clone this repository from github
+Run 'yarn install' in your terminal to install all of the required packages
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```
+yarn install
+```
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+To start the server, simply run 'npm start'. This opens up the server locally to (https://localhost:3000) by default.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```
+npm start
 
-### `yarn eject`
+> acting-out-frontend@0.1.0 start /mnt/c/Users/kkenn_000/dev/flatiron/labs/acting-out/acting-out-frontend
+> react-scripts start
+Starting the development server...
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Built With
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+* [React](https://github.com/facebook/react) Facebook developed frontend library
+* [React Redux](https://github.com/reduxjs/react-redux) Global state manipulation for React
+* [React Router](https://github.com/ReactTraining/react-router) Router component library for React
+* [Redux Thunk](https://github.com/reduxjs/redux-thunk) Redux middleware for asynchronous calls
+* [Rails](https://github.com/rails/rails) - Framework used to build application backend
+* [ActiveRecord](https://github.com/rails/rails) - ORM used for data manipulation
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## Contributing
 
-## Learn More
+If interested in contributing, please send all pull requests to (https://github.com/kamrinkennedy/acting-out-frontend)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Authors
 
-### Code Splitting
+* **Kamrin Kennedy** - (https://github.com/kamrinkennedy)
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
 
-### Analyzing the Bundle Size
+## License
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
 
-### Making a Progressive Web App
+## Acknowledgments
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+* **Dario El-Badry** - (https://github.com/elbadryd)

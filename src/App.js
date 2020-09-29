@@ -1,9 +1,11 @@
 import React from 'react';
 import './App.css';
 import ActorsContainer from './containers/ActorsContainer'
-import { Switch, Route } from 'react-router-dom'
+import { Switch, Route, Redirect } from 'react-router-dom'
 import BioCardContainer from './containers/BioCardContainer'
 import ContactCardContainer from './containers/ContactCardContainer'
+import Navbar from './components/Navbar'
+import WelcomePage from './components/WelcomePage'
 
 class App extends React.Component {
 
@@ -11,7 +13,11 @@ class App extends React.Component {
 
     return (
       <div className="App">
+        <Navbar />
         <Switch>
+          <Route exact path='/'>
+            <WelcomePage />
+          </Route>
           <Route path='/actors'>
             <ActorsContainer />
           </Route>

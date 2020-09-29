@@ -10,7 +10,7 @@ export default function ActorCard(props){
         <div className='actor-card'>
             <h1>{first_name} {last_name}</h1><br/>
             <Picture actor={props.actor} /><br/>
-            <Link to={`/actors/${props.actor.id}`}>
+            <Link to={`/actors/${props.actor.id}`} className='link'>
                 View Actor Profile
             </Link>
         </div>

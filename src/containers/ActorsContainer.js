@@ -13,7 +13,6 @@ class ActorsContainer extends Component {
     }
 
     displayedActors(){
-        // debugger;
         return this.props.actors.map( actor => {
             return (
                 <div key={actor.id}>
@@ -25,7 +24,6 @@ class ActorsContainer extends Component {
     
     render(){
         return (
-            // <div className='actors-container'>
                 <Switch>
                     <Route path="/actors/:id" component={({match}) => {
                         return <div className='actors-container'><ActorShow id={match.params.id}/></div>
@@ -36,7 +34,6 @@ class ActorsContainer extends Component {
                         : <div className='actors-container'>{this.displayedActors()}</div>}
                     </Route>
                 </Switch>
-            // </div>
         )
     }
 }   
