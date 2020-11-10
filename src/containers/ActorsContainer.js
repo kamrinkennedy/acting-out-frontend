@@ -1,4 +1,4 @@
-import React,{ Component } from 'react'
+import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { fetchActors } from '../actions/actorActions'
 import ActorCard from '../components/ActorCard'

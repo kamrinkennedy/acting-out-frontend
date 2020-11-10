@@ -5,17 +5,19 @@ import AddPictureButton from '../components/AddPictureButton'
 
 class PictureForm extends React.Component {
 
+    //Controlled Form State Setup
     state = {
         url: '',
         submitting: true
     }
 
+    //ADD PICTURE 
     handleOnSubmit = (event) =>{
-        // debugger;
         event.preventDefault()
         this.props.addPicture({url: event.target.url.value, id: this.props.actor.id})
     }
 
+    //Turn form to button
     handleCancel =(event) =>{
         event.preventDefault()
         this.setState({submitting: false})
@@ -23,6 +25,7 @@ class PictureForm extends React.Component {
 
     render(){
         if (this.state.submitting) {
+            //ADD PICTURE FORM
             return (
                 <form className='picture-form' onSubmit={this.handleOnSubmit}>
                     <input type='text' placeholder='Image URL ....' name='url'></input>
@@ -30,6 +33,7 @@ class PictureForm extends React.Component {
                 </form>
                 )
         } 
+            //ADD PICTURE BUTTON
         return <AddPictureButton actor={this.props.actor}/>
     }
 }

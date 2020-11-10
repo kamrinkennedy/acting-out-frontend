@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 
 class BioCardForm extends React.Component {
     
+    //Controlled Form State Setup
     state = {
         submitting: false,
         age: this.props.bioCard.age,
@@ -13,22 +14,25 @@ class BioCardForm extends React.Component {
         hair_color: this.props.bioCard.hair_color
     }
 
-
+    //Change state to match form values
     handleOnChange = event => {
         this.setState({
             [event.target.name]: event.target.value
         })
     }
 
+    //Turn button to form
     handleOnClick = () => {
         this.setState({submitting: true})
     }
 
+    //Turn form to button
     handleOnCancel = event => {
         event.preventDefault()
         this.setState({submitting: false})
     }
     
+    //ADD BIO CARD
     handleOnSubmit = event => {
         event.preventDefault()
         const { age, weight, height, eye_color, hair_color } = this.state
@@ -47,6 +51,7 @@ class BioCardForm extends React.Component {
     render(){
         return (
         this.state.submitting ?
+        //BIO CARD FORM
         <form id='bio-card-form' onSubmit={this.handleOnSubmit}>
             <label for='age'>Age: </label>
             <input type='number' name='age' onChange={this.handleOnChange} value={this.state.age}/><br/>
@@ -60,6 +65,7 @@ class BioCardForm extends React.Component {
             <input type='text' name='hair_color' onChange={this.handleOnChange} value={this.state.hair_color}/><br/>
             <input type='submit' className='button'/> <button className='button' onClick={this.handleOnCancel}>Cancel</button>
         </form> :
+        //ADD BIO CARD BUTTON
         <button className='button' onClick={this.handleOnClick}>Edit Bio Card</button>
         )
     }

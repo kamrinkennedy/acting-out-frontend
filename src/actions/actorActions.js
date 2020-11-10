@@ -1,15 +1,20 @@
 const baseURL = 'http://localhost:3001/actors'
 
 export function fetchActors(){
+    console.log('a')
     return (dispatch) => {
         dispatch({type:'FETCHING_ACTORS'})
+        console.log('b')
         fetch(baseURL)
             .then(res => res.json())
             .then(actors => {
-                console.log(actors)
+                console.log('c')
+                // console.log(actors)
                 dispatch({type: 'GET_ACTORS', payload: actors})
             })
+            console.log('d')
     }
+    console.log('e')
   }
 
 export function fetchActor(id){
