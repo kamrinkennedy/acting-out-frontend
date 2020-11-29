@@ -1,20 +1,14 @@
 const baseURL = 'http://localhost:3001/actors'
 
 export function fetchActors(){
-    console.log('a')
     return (dispatch) => {
         dispatch({type:'FETCHING_ACTORS'})
-        console.log('b')
         fetch(baseURL)
             .then(res => res.json())
             .then(actors => {
-                console.log('c')
-                // console.log(actors)
                 dispatch({type: 'GET_ACTORS', payload: actors})
             })
-            console.log('d')
     }
-    console.log('e')
   }
 
 export function fetchActor(id){
@@ -29,7 +23,6 @@ export function fetchActor(id){
 }
 
 export function addActor(actor){
-    // debugger;
     const configObj = {
         method: 'POST',
         headers: {
@@ -51,7 +44,6 @@ export function addActor(actor){
 
 
 export function addPicture(actor){
-
     const configObj = {
         method: 'PATCH',
         headers: {
@@ -60,8 +52,6 @@ export function addPicture(actor){
         },
         body: JSON.stringify({picture_url: actor.url})
     }
-    debugger;
-
     return (dispatch) => {
         fetch(baseURL + `/${actor.id}`, configObj)
             .then(res => res.json())

@@ -1,5 +1,4 @@
 export default function actorReducer(state = { actors: [], loading: true}, action){
-    console.log('f')
     switch(action.type) {
         case 'GET_ACTORS':
             return {actors: action.payload, loading: false}

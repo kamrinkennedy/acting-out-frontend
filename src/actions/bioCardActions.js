@@ -40,7 +40,6 @@ export function editBioCard(bioCard, id) {
         },
         body: JSON.stringify({bio_card: bioCard})
     }
-    
     return (dispatch) => {
         fetch(baseURL + `/${id}`, configObj)
         .then(res => res.json())

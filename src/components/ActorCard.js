@@ -5,7 +5,6 @@ import { Link } from 'react-router-dom'
 export default function ActorCard(props){
 
     const [likes, setLikes] = useState(0);
-    
     const {first_name, last_name} = props.actor;
 
     return (
@@ -18,6 +17,5 @@ export default function ActorCard(props){
         <h3>Likes: {likes}</h3><button onClick={() => setLikes(likes + 1)}>Like me!</button>
         </div>
     )
-
 }
 

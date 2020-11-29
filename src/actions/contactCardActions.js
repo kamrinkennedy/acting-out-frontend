@@ -6,14 +6,12 @@ export function fetchContact(id){
         fetch(baseURL + `/${id}`)
             .then(res => res.json())
             .then(contactCard => {
-                // debugger;
                 dispatch({type:'FETCH_CONTACT', payload: contactCard})
             })
     }
 }
 
 export function addContactCard(contact){
-    // debugger;
     const configObj = {
         method: 'POST',
         headers: {
@@ -27,14 +25,12 @@ export function addContactCard(contact){
         fetch(baseURL, configObj)
             .then(res => res.json())
             .then(contactCard => {
-                // debugger;
                 dispatch({type:'ADD_CONTACT', payload: contactCard})
             })
     }
 }
 
 export function editContactCard(contact, id) {
-    // debugger;
     const configObj = {
         method: 'PATCH',
         headers: {
@@ -48,9 +44,7 @@ export function editContactCard(contact, id) {
         fetch(baseURL + `/${id}`, configObj)
         .then(res => res.json())
         .then(contactCard => {
-            // debugger;
             dispatch({type: 'EDIT_CONTACT', payload: contactCard})
         })
     }
-
 }
