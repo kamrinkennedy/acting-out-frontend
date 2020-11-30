@@ -8,12 +8,7 @@ import Picture from './Picture'
 
 class ActorShow extends React.Component{
 
-    handleBio = () => {
-
-    }
-
     render(){
-        // eslint-disable-next-line
         const actor = this.props.actors.find( actor => actor.id == this.props.id)
         if (this.props.loading || !actor) {
             return <div>Loading...</div>
@@ -34,6 +29,5 @@ class ActorShow extends React.Component{
             )
     }
 }
-
 
 export default connect(state => state.actors, {fetchActor})(ActorShow);
