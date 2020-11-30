@@ -8,7 +8,6 @@ export default class Picture extends React.Component{
     }
 
     handleOnClick = () => {
-        // debugger;
         this.setState({
             addStatus: true
         })
