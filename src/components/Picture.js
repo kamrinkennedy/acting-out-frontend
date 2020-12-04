@@ -1,26 +1,22 @@
-import React from 'react'
+import React, {useState} from 'react'
 import AddPictureButton from './AddPictureButton'
 
-export default class Picture extends React.Component{
+export default function Picture({actor}){
 
-    state = {
-        addStatus: false
+    const [addStatus, setAddStatus] = useState(false)
+    const {picture_url} = actor
+
+    const handleOnClick = () => {
+        setAddStatus(!addStatus)
     }
 
-    handleOnClick = () => {
-        this.setState({
-            addStatus: true
-        })
-    }
-
-    render(){
-        if (this.props.actor.picture_url) {
+    if (picture_url) {
         return(
             <div style={{height:'400px', width:'400px'}}>
-                <img src={this.props.actor.picture_url} alt='Profile Picture' className='profile-picture' /><br/>
+                <img src={picture_url} alt='Profile Picture' className='profile-picture' /><br/>
             </div>
             )
-        }
-        return <AddPictureButton actor={this.props.actor}/>
+    } else {
+        return <AddPictureButton actor={actor}/>
     }
 }

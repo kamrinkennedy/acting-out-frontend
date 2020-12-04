@@ -4,9 +4,6 @@ import PictureForm from '../forms/PictureForm'
 export default function AddPictureButton(props) {
 
     const [submitting, setSubmitting] = useState(false)
-    // state = {
-    //     submitting: false
-    // }
 
     const handleOnClick = () => {
         setSubmitting(!submitting)
