@@ -1,24 +1,21 @@
-import React, { Component } from 'react'
+import React, { useState } from 'react'
 import PictureForm from '../forms/PictureForm'
 
-class AddPictureButton extends Component {
+export default function AddPictureButton(props) {
 
-    state = {
-        submitting: false
+    const [submitting, setSubmitting] = useState(false)
+    // state = {
+    //     submitting: false
+    // }
+
+    const handleOnClick = () => {
+        setSubmitting(!submitting)
     }
 
-    handleOnClick = () =>{
-        this.setState(prevState => {
-            return {submitting: !prevState.submitting}
-        })
-    }
 
-    render(){
-        if (this.state.submitting) {
-            return <PictureForm actor={this.props.actor}/>
-        }
-        return <div><button onClick={this.handleOnClick}>Add Profile Picture</button><br/></div>
+    if (submitting) {
+        return <PictureForm actor={props.actor}/>
+    } else {
+        return <div><button onClick={() => handleOnClick()}>Add Profile Picture</button><br/></div>
     }
 }
-
-export default AddPictureButton
