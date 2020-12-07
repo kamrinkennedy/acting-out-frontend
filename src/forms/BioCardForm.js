@@ -1,70 +1,77 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { addBioCard, editBioCard } from '../actions/bioCardActions';
 import { connect } from 'react-redux';
 
-class BioCardForm extends React.Component {
+function BioCardForm(props) {
   //Controlled Form State Setup
-  state = {
-    submitting: false,
-    age: this.props.bioCard.age,
-    weight: this.props.bioCard.weight,
-    height: this.props.bioCard.height,
-    eye_color: this.props.bioCard.eye_color,
-    hair_color: this.props.bioCard.hair_color,
-  };
-
+//   state = {
+//     submitting: false,
+//     age: this.props.bioCard.age,
+//     weight: this.props.bioCard.weight,
+//     height: this.props.bioCard.height,
+//     eye_color: this.props.bioCard.eye_color,
+//     hair_color: this.props.bioCard.hair_color,
+//   };
+  const [bio, setBio] = useState({
+      submitting: false,
+      age: props.bioCard.age,
+      weight: props.bioCard.height,
+      eye_color: props.bioCard.eye_color,
+      hair_color: props.bioCard.hair_color
+  })
   //Change state to match form values
-  handleOnChange = (event) => {
-    this.setState({
+  const handleOnChange = (event) => {
+    setBio({
+      ...bio,
       [event.target.name]: event.target.value,
     });
   };
 
   //Turn button to form
-  handleOnClick = () => {
-    this.setState({ submitting: true });
+  const handleOnClick = () => {
+    setBio({ ...bio, submitting: true });
   };
 
   //Turn form to button
-  handleOnCancel = (event) => {
+  const handleOnCancel = (event) => {
     event.preventDefault();
-    this.setState({ submitting: false });
+    setBio({ ...bio, submitting: false });
   };
 
   //ADD BIO CARD
-  handleOnSubmit = (event) => {
+  const handleOnSubmit = (event) => {
     event.preventDefault();
-    const { age, weight, height, eye_color, hair_color } = this.state;
+    const { age, weight, height, eye_color, hair_color } = bio;
     // debugger;
-    this.props.bioCard.error
-      ? this.props.addBioCard({
+    props.bioCard.error
+      ? props.addBioCard({
           age,
           weight,
           height,
           eye_color,
           hair_color,
-          actor_id: this.props.actorID,
+          actor_id: props.actorID,
         })
-      : this.props.editBioCard(
+      : props.editBioCard(
           { age, weight, height, eye_color, hair_color },
-          this.props.bioCard.id
+          props.bioCard.id
         );
 
-    this.setState({
+    setBio({
+      ...bio,
       submitting: false,
     });
   };
 
-  render() {
-    return this.state.submitting ? (
+    return bio.submitting ? (
       //BIO CARD FORM
-      <form id='bio-card-form' onSubmit={this.handleOnSubmit}>
+      <form id='bio-card-form' onSubmit={handleOnSubmit}>
         <label for='age'>Age: </label>
         <input
           type='number'
           name='age'
-          onChange={this.handleOnChange}
-          value={this.state.age}
+          onChange={handleOnChange}
+          value={bio.age}
         />
         <br />
         <label for='weight'>Weight: </label>
@@ -72,8 +79,8 @@ class BioCardForm extends React.Component {
           type='number'
           name='weight'
           placeholder='in lbs...'
-          onChange={this.handleOnChange}
-          value={this.state.weight}
+          onChange={handleOnChange}
+          value={bio.weight}
         />
         <br />
         <label for='height'>Height: </label>
@@ -81,38 +88,37 @@ class BioCardForm extends React.Component {
           type='text'
           name='height'
           placeholder="Ex.: 5'8"
-          onChange={this.handleOnChange}
-          value={this.state.height}
+          onChange={handleOnChange}
+          value={bio.height}
         />
         <br />
         <label for='eye_color'>Eye Color: </label>
         <input
           type='text'
           name='eye_color'
-          onChange={this.handleOnChange}
-          value={this.state.eye_color}
+          onChange={handleOnChange}
+          value={bio.eye_color}
         />
         <br />
         <label for='hair_color'>Hair Color: </label>
         <input
           type='text'
           name='hair_color'
-          onChange={this.handleOnChange}
-          value={this.state.hair_color}
+          onChange={handleOnChange}
+          value={bio.hair_color}
         />
         <br />
         <input type='submit' className='button' />{' '}
-        <button className='button' onClick={this.handleOnCancel}>
+        <button className='button' onClick={handleOnCancel}>
           Cancel
         </button>
       </form>
     ) : (
       //ADD BIO CARD BUTTON
-      <button className='button' onClick={this.handleOnClick}>
+      <button className='button' onClick={handleOnClick}>
         Edit Bio Card
       </button>
     );
-  }
 }
 
 export default connect(null, { addBioCard, editBioCard })(BioCardForm);

@@ -2,14 +2,12 @@ import React, { useState } from 'react';
 import { addActor } from '../actions/actorActions';
 import { connect } from 'react-redux';
 
-function ActorForm(props){
-  //Controlled Form State Setup
-//   state = {
-//     submitting: false,
-//     first_name: '',
-//     last_name: '',
-//   };
-  const [actor, setActor] = useState({submitting: false, first_name: '', last_name: ''})
+function ActorForm(props) {
+  const [actor, setActor] = useState({
+    submitting: false,
+    first_name: '',
+    last_name: '',
+  });
 
   //Turn button to form
   const handleOnClick = () => {
@@ -19,7 +17,7 @@ function ActorForm(props){
   //Turn form to button
   const handleOnCancel = (event) => {
     event.preventDefault();
-    setActor({ ...actor,  submitting: false });
+    setActor({ ...actor, submitting: false });
   };
 
   //Change state to match form values
@@ -42,42 +40,38 @@ function ActorForm(props){
     setActor({ ...actor, submitting: false });
   };
 
-    return actor.submitting ? (
-      // ACTOR FORM
-      <form id='add-actor-form' onSubmit={handleOnSubmit}>
-        <label for='first_name'>First Name: </label>
-        <input
-          type='text'
-          name='first_name'
-          onChange={handleOnChange}
-          value={actor.first_name}
-        />
-        <br />
-        <label for='last_name'>Last Name: </label>
-        <input
-          type='text'
-          name='last_name'
-          onChange={handleOnChange}
-          value={actor.last_name}
-        />
-        <br />
-        <input type='submit' className='button'></input>{' '}
-        <button className='button' onClick={handleOnCancel}>
-          Cancel
-        </button>
-      </form>
-    ) : (
-      // ADD ACTOR BUTTON
-      <div id='add-actor-form'>
-        <button
-          id='add-actor-button'
-          className='button'
-          onClick={handleOnClick}
-        >
-          Add Actor
-        </button>
-      </div>
-    );
+  return actor.submitting ? (
+    // ACTOR FORM
+    <form id='add-actor-form' onSubmit={handleOnSubmit}>
+      <label for='first_name'>First Name: </label>
+      <input
+        type='text'
+        name='first_name'
+        onChange={handleOnChange}
+        value={actor.first_name}
+      />
+      <br />
+      <label for='last_name'>Last Name: </label>
+      <input
+        type='text'
+        name='last_name'
+        onChange={handleOnChange}
+        value={actor.last_name}
+      />
+      <br />
+      <input type='submit' className='button'></input>{' '}
+      <button className='button' onClick={handleOnCancel}>
+        Cancel
+      </button>
+    </form>
+  ) : (
+    // ADD ACTOR BUTTON
+    <div id='add-actor-form'>
+      <button id='add-actor-button' className='button' onClick={handleOnClick}>
+        Add Actor
+      </button>
+    </div>
+  );
 }
 
 export default connect(null, { addActor })(ActorForm);
