@@ -7,10 +7,7 @@ import ContactCardContainer from './containers/ContactCardContainer'
 import Navbar from './components/Navbar'
 import WelcomePage from './components/WelcomePage'
 
-class App extends React.Component {
-
-  render(){
-
+export default function App() {
     return (
       <div className="App">
         <Navbar />
@@ -32,7 +29,6 @@ class App extends React.Component {
         </Switch>
       </div>
     )
-  }
 }
 
-export default App;
+
