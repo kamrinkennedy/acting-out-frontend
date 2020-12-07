@@ -3,11 +3,7 @@ import { addActor } from '../actions/actorActions';
 import { connect } from 'react-redux';
 
 function ActorForm(props) {
-  const [actor, setActor] = useState({
-    submitting: false,
-    first_name: '',
-    last_name: '',
-  });
+  const [actor, setActor] = useState({submitting: false});
 
   //Turn button to form
   const handleOnClick = () => {
@@ -35,9 +31,8 @@ function ActorForm(props) {
       first_name: actor.first_name,
       last_name: actor.last_name,
     };
-    // debugger;
     props.addActor(newActor);
-    setActor({ ...actor, submitting: false });
+    setActor({ submitting: false });
   };
 
   return actor.submitting ? (

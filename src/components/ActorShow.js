@@ -3,11 +3,12 @@ import { connect } from 'react-redux';
 import { fetchActor } from '../actions/actorActions';
 import { Link } from 'react-router-dom';
 import Picture from './Picture';
+import ClipLoader from "react-spinners/ClipLoader"
 
 function ActorShow(props) {
   const actor = props.actors.find((actor) => actor.id == props.id);
   if (props.loading || !actor) {
-    return <div>Loading...</div>;
+    return <ClipLoader size={150} loading={props.loading}/>
   }
   return (
     <div id='actor-show'>

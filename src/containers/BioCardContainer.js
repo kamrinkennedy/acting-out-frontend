@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { fetchBio } from '../actions/bioCardActions';
 import BioCard from '../components/BioCard';
+import ClipLoader from "react-spinners/ClipLoader"
 
 function BioCardContainer(props) {
   useEffect(() => {
@@ -16,7 +17,7 @@ function BioCardContainer(props) {
     );
   }
 
-  return <div>{props.loading ? <div>Loading...</div> : displayBio()}</div>;
+  return <div>{props.loading ? <ClipLoader size={100} loading={props.loading}/> : displayBio()}</div>;
 }
 
 export default connect((state) => state.bioCard, { fetchBio })(

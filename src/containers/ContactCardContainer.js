@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { fetchContact } from '../actions/contactCardActions';
 import ContactCard from '../components/ContactCard';
+import ClipLoader from "react-spinners/ClipLoader"
 
 function ContactCardContainer(props) {
   useEffect(() => {
@@ -11,7 +12,7 @@ function ContactCardContainer(props) {
   return (
     <div>
       {props.loading ? (
-        <h1>Loading...</h1>
+        <ClipLoader size={100} loading={props.loading}/>
       ) : (
         <ContactCard
           contactCard={props.contactCard}

@@ -5,6 +5,7 @@ import ActorCard from '../components/ActorCard';
 import { Switch, Route } from 'react-router-dom';
 import ActorShow from '../components/ActorShow';
 import ActorForm from '../forms/ActorForm';
+import ClipLoader from "react-spinners/ClipLoader"
 
 function ActorsContainer(props) {
   useEffect(() => {
@@ -36,9 +37,7 @@ function ActorsContainer(props) {
       <Route exact path='/actors'>
         <ActorForm id='add-actor-button' />
         {props.loading ? (
-          <div>
-            <h1>Loading...</h1>
-          </div>
+          <ClipLoader size={150} loading={props.loading} />
         ) : (
           <div className='actors-container'>{displayedActors()}</div>
         )}

@@ -42,7 +42,6 @@ function BioCardForm(props) {
   const handleOnSubmit = (event) => {
     event.preventDefault();
     const { age, weight, height, eye_color, hair_color } = bio;
-    // debugger;
     props.bioCard.error
       ? props.addBioCard({
           age,
