@@ -2,21 +2,21 @@ import React from 'react'
 import BioCardForm from '../forms/BioCardForm'
 import { connect } from 'react-redux'
 
-function BioCard(props){
+function BioCard({bioCard, actorID}){
 
-    const { age, weight, height, eye_color, hair_color } = props.bioCard
+    const { age, weight, height, eye_color, hair_color } = bioCard
 
     return (
-    props.bioCard.error ?
+    bioCard.error ?
     <div className='bioCard'>
         <h1>Bio Not Found</h1>
-        <BioCardForm bioCard={props.bioCard} actorID={props.actorID}/>
+        <BioCardForm bioCard={bioCard} actorID={actorID}/>
     </div>  :
     <div className='bioCard'>
         <h1>Bio Card</h1><br/>
         <h3>Age: {age} | Weight: {weight} | Height: {height}</h3><br/>
         <h3>Eye Color: {eye_color} | Hair Color: {hair_color}</h3><br/>
-        <BioCardForm bioCard={props.bioCard} actorID={props.actorID}/>
+        <BioCardForm bioCard={bioCard} actorID={actorID}/>
     </div>
     )
 
