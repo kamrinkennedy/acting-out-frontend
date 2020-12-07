@@ -5,12 +5,10 @@ import { Link } from 'react-router-dom'
 import Picture from './Picture'
 
 
+function ActorShow(props){
 
-class ActorShow extends React.Component{
-
-    render(){
-        const actor = this.props.actors.find( actor => actor.id == this.props.id)
-        if (this.props.loading || !actor) {
+        const actor = props.actors.find( actor => actor.id == props.id)
+        if (props.loading || !actor) {
             return <div>Loading...</div>
         } 
             return (
@@ -27,7 +25,6 @@ class ActorShow extends React.Component{
                     </div>
                 </div>
             )
-    }
 }
 
 export default connect(state => state.actors, {fetchActor})(ActorShow);
