@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { fetchContact } from '../actions/contactCardActions';
 import ContactCard from '../components/ContactCard';
-import ClipLoader from "react-spinners/ClipLoader"
+import SyncLoader from "react-spinners/SyncLoader"
 
 function ContactCardContainer(props) {
   useEffect(() => {
@@ -12,7 +12,7 @@ function ContactCardContainer(props) {
   return (
     <div>
       {props.loading ? (
-        <ClipLoader size={100} loading={props.loading}/>
+        <SyncLoader loading={props.loading}/>
       ) : (
         <ContactCard
           contactCard={props.contactCard}

@@ -9,7 +9,6 @@ export default function AddPictureButton(props) {
         setSubmitting(!submitting)
     }
 
-
     if (submitting) {
         return <PictureForm actor={props.actor}/>
     } else {

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import AddPictureButton from './AddPictureButton';
 
 export default function Picture({ actor }) {
