@@ -30,6 +30,7 @@ function ActorsContainer(props) {
         )
       })
     }
+    debugger;
     return props.actors.map((actor) => {
       return (
         <div key={actor.id}>

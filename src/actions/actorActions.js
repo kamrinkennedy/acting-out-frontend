@@ -1,33 +1,33 @@
-const baseURL = 'http://localhost:3001/actors';
+const baseURL = "http://localhost:3001/actors";
 
 export function fetchActors() {
   return (dispatch) => {
-    dispatch({ type: 'FETCHING_ACTORS' });
+    dispatch({ type: "FETCHING_ACTORS" });
     fetch(baseURL)
       .then((res) => res.json())
       .then((actors) => {
-        dispatch({ type: 'GET_ACTORS', payload: actors });
+        dispatch({ type: "GET_ACTORS", payload: actors });
       });
   };
 }
 
 export function fetchActor(id) {
   return (dispatch) => {
-    dispatch({ type: 'FETCHING_ACTOR' });
+    dispatch({ type: "FETCHING_ACTOR" });
     fetch(baseURL + `/${id}`)
       .then((res) => res.json())
       .then((actor) => {
-        dispatch({ type: 'FETCH_ACTOR', payload: actor });
+        dispatch({ type: "FETCH_ACTOR", payload: actor });
       });
   };
 }
 
 export function addActor(actor) {
   const configObj = {
-    method: 'POST',
+    method: "POST",
     headers: {
-      'Content-Type': 'application/json',
-      Accept: 'application/json',
+      "Content-Type": "application/json",
+      Accept: "application/json",
     },
     body: JSON.stringify({ actor: actor }),
   };
@@ -36,18 +36,17 @@ export function addActor(actor) {
     fetch(baseURL, configObj)
       .then((res) => res.json())
       .then((actor) => {
-        debugger;
-        dispatch({ type: 'ADD_ACTOR', payload: actor });
+        dispatch({ type: "ADD_ACTOR", payload: actor });
       });
   };
 }
 
 export function addPicture(actor) {
   const configObj = {
-    method: 'PATCH',
+    method: "PATCH",
     headers: {
-      'Content-Type': 'application/json',
-      Accept: 'application/json',
+      "Content-Type": "application/json",
+      Accept: "application/json",
     },
     body: JSON.stringify({ picture_url: actor.url }),
   };
@@ -55,7 +54,7 @@ export function addPicture(actor) {
     fetch(baseURL + `/${actor.id}`, configObj)
       .then((res) => res.json())
       .then((actor) => {
-        dispatch({ type: 'ADD_PICTURE', payload: actor });
+        dispatch({ type: "ADD_PICTURE", payload: actor });
       });
   };
 }
